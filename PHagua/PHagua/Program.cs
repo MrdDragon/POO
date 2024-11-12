@@ -10,7 +10,7 @@ namespace PHagua
             int qtph = 0;
             double phagua;
 
-            Console.Write("\nQuantidade de aguas a analizar: ");
+            Console.Write("\nQuantidade de águas a analizar: ");
             qtph = int.Parse(Console.ReadLine());
 
             for(int i = 1; i <= qtph; i++)
