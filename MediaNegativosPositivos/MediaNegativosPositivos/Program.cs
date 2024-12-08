@@ -10,48 +10,55 @@ namespace MediaNegativosPositivos
     {
         static void Main(string[] args)
         {
-            int valoresP = 0, valoresN = 0, contadorP = 0, contadorN = 0, valorLido = 0;
-            double mediaP = 0.0, mediaN = 0.0;
-            
+            int contadorP = 0, contadorN = 0;
+            double mediaP = 0.0, mediaN = 0.0, valoresP = 0.0, valoresN = 0.0, valorLido = 0;
+       
 
-            while (valorLido != 999999)
+            while (true)
             {
-                Console.WriteLine("Introduza um valor real (Introduza 999999 para terminar): ");
-                valorLido = int.Parse(Console.ReadLine());
+                Console.WriteLine("Introduza um valor real (Introduza \"fim\" para terminar): ");
 
-                if (valorLido == 999999)
+                string dadosInt = Console.ReadLine();
+               
+
+                if (dadosInt.ToLower() == "fim")
                 {
                     break;
                 }
-                else if (valorLido < 0)
-                {
-                    valoresN += valorLido;
-                    contadorN ++;
-                }
-                else if(valorLido > 0)
-                {
-                    valoresP += valorLido;
-                    contadorP++;
-                }
-                else if (valorLido == 0)
-                {
-                }
-            }
-            if (contadorP == 0)
-            {
 
+                if (double.TryParse(dadosInt, out valorLido))
+                {
+                    if (valorLido < 0)
+                    {
+                        valoresN += valorLido;
+                        contadorN++;
+                    }
+                    else if (valorLido > 0)
+                    {
+                        valoresP += valorLido;
+                        contadorP++;
+                    }
+                    else if (valorLido == 0)
+                    {
+                        continue;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Dados inválidos! Tente novamente!");
+
+                }
+               
             }
-            else 
+
+            if (contadorP > 0)
             {
                 mediaP = (double)valoresP / contadorP;
-                Console.WriteLine("A média dos valores positivos é de: {0:F2}", mediaP);
+                Console.WriteLine($"A média dos valores positivos é de: {mediaP:F2}");
             }
+            
 
-            if (contadorN == 0)
-            {
-
-            }
-            else
+            if (contadorN > 0)
             {
                 mediaN = (double)valoresN / contadorN;
                 Console.WriteLine("A média dos valores negativos é de: {0:F2}", mediaN);
