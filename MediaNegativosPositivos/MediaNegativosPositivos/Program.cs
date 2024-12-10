@@ -16,7 +16,7 @@ namespace MediaNegativosPositivos
 
             while (true)
             {
-                Console.WriteLine("Introduza um valor real (Introduza \"fim\" para terminar): ");
+                Console.Write("\nIntroduza um valor real (Introduza \"fim\" para terminar): ");
 
                 string dadosInt = Console.ReadLine();
                
@@ -54,14 +54,14 @@ namespace MediaNegativosPositivos
             if (contadorP > 0)
             {
                 mediaP = (double)valoresP / contadorP;
-                Console.WriteLine($"A média dos valores positivos é de: {mediaP:F2}");
+                Console.WriteLine($"\nA média dos valores positivos é de: {mediaP:F2}");
             }
             
 
             if (contadorN > 0)
             {
                 mediaN = (double)valoresN / contadorN;
-                Console.WriteLine("A média dos valores negativos é de: {0:F2}", mediaN);
+                Console.WriteLine("\nA média dos valores negativos é de: {0:F2}", mediaN);
             }
             
             
